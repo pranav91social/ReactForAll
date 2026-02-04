@@ -9,7 +9,7 @@ const Button = ({ label, type, onClick }: ButtonProps) => {
     <button
       type={type}
       onClick={onClick}
-      className="w-fit bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+      className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
     >
       {label}
     </button>
