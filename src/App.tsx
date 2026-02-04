@@ -1,16 +1,34 @@
-import logo from "./logo.svg";
+import { Fragment } from "react";
 import "./App.css";
+import AppContainer from "./AppContainer";
+import Header from "./Header";
+import Button from "./components/Button";
+
+const formFields = [
+  { id: 1, label: "First Name", type: "text" },
+  { id: 2, label: "Last Name", type: "text" },
+  { id: 3, label: "Email", type: "email" },
+  { id: 4, label: "Date of Birth", type: "date" },
+  { id: 5, label: "Phone Number", type: "tel" },
+];
 
 function App() {
   return (
-    <div className="flex h-screen bg-gray-100 items-center">
-      <div className="w-64 p-4 mx-auto bg-white shadow-lg rounded-xl">
-        <h1 className="text-center text-xl">
-          Welcome to <br /> #react-typescript with #tailwindcss{" "}
-        </h1>
-        <img src={logo} className="animate-spin" alt="logo" />
+    <AppContainer>
+      <div className="p-4 mx-auto bg-white shadow-lg rounded-xl flex flex-col gap-2">
+        <Header title="Welcome to Lesson 5 of $react-typescript with #tailwindcss" />
+        {formFields.map((field) => (
+          <Fragment key={field.id}>
+            <label>{field.label}</label>
+            <input
+              type={field.type}
+              className="border-2 border-gray-200 rounded-lg p-2 mb-2 w-full"
+            />
+          </Fragment>
+        ))}
+        <Button label="Submit" type="submit" />
       </div>
-    </div>
+    </AppContainer>
   );
 }
 
